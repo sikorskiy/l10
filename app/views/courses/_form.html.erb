@@ -1,0 +1,26 @@
+<% if course.errors.any? %>
+  There are <%= pluralize(course.errors.count, 'error') %>:
+  <ul>
+    <% course.errors.full_messages.each do |mes| %>
+      <li>
+        <%= mes %>
+      </li>
+    <% end  %>
+  </ul>
+<% end %>
+
+<%= form_for course do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br>
+  <br>
+  <%= form.label :price %>
+  <%= form.text_field :price %>
+  <br>
+  <br>
+  <%= form.label :online %>
+  <%= form.check_box :online %>
+  <br>
+  <br>
+  <%= form.submit %>
+<% end %>

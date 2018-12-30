@@ -1,0 +1,2743 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCourses (20181216102816)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "online" boolean DEFAULT 0, "price" float DEFAULT 0.0, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181216102816_create_courses.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181216102816"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-16 10:31:14.473432"], ["updated_at", "2018-12-16 10:31:14.473432"]]
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCourse Load (1.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.8ms)[0m  [1m[32mINSERT INTO "courses" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-12-16 10:32:00.782137"], ["updated_at", "2018-12-16 10:32:00.782137"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Programming in Ruby"], ["created_at", "2018-12-16 10:33:02.650893"], ["updated_at", "2018-12-16 10:33:02.650893"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE (online = true) LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE (online = false) LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE (online = false) ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (1.9ms)[0m  [1m[32mINSERT INTO "courses" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-12-16 10:34:53.692813"], ["updated_at", "2018-12-16 10:34:53.692813"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Update (0.6ms)[0m  [1m[33mUPDATE "courses" SET "online" = ?, "price" = ?, "name" = ?, "updated_at" = ? WHERE "courses"."id" = ?[0m  [["online", 1], ["price", 1000.0], ["name", "Basics of Java"], ["updated_at", "2018-12-16 10:36:07.986174"], ["id", 3]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE (online = true) LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Update (0.9ms)[0m  [1m[33mUPDATE "courses" SET "name" = ?, "updated_at" = ? WHERE "courses"."id" = ?[0m  [["name", "Introduction to Python"], ["updated_at", "2018-12-16 10:37:33.217876"], ["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCourse Load (1.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Update (0.4ms)[0m  [1m[33mUPDATE "courses" SET "price" = ?, "updated_at" = ? WHERE "courses"."id" = ?[0m  [["price", 10000.0], ["updated_at", "2018-12-16 10:39:03.729011"], ["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."price" = ? LIMIT ?[0m  [["price", 1000.0], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-12-16 13:43:05 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/vasiliysikorskiy/.rvm/gems/ruby-2.4.2/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/vasiliysikorskiy/.rvm/gems/ruby-2.4.2/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/vasiliysikorskiy/.rvm/gems/ruby-2.4.2/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.6ms)
+Completed 200 OK in 23ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/game" for 127.0.0.1 at 2018-12-16 13:43:33 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/game"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-16 13:44:24 +0300
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:5:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-16 13:44:46 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  Rendered courses/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1329ms (Views: 1324.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 13:47:24 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  Rendered courses/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 163ms (Views: 139.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 13:48:38 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  Rendered courses/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 141ms (Views: 137.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 13:48:41 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 75ms (Views: 59.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 13:48:42 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  Rendered courses/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 56ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 13:48:43 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 95ms (Views: 91.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 13:48:44 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  Rendered courses/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 44ms (Views: 37.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 13:48:45 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 42ms (Views: 38.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 13:48:46 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  Rendered courses/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 48ms (Views: 42.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 13:48:46 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 39ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 13:48:48 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  Rendered courses/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 45ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 13:53:40 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:4
+  Rendered courses/index.html.erb within layouts/application (23.6ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 108ms (Views: 96.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 13:54:02 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+Completed 200 OK in 66ms (Views: 59.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 13:58:49 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (189.5ms)
+Completed 500 Internal Server Error in 218ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `courses_path' for #<#<Class:0x00007fcd42d08858>:0x00007fcd42d00798>
+Did you mean?  courses_new_path):
+    1: <h1>Courses#new</h1>
+    2: <p>Find me in app/views/courses/new.html.erb</p>
+    3: <%= form_for @course do |f| %>
+    4:   <%= f.text_field :name %>
+    5:   <%= f.text_field :price %>
+    6:   <%= f.check_box :online %>
+  
+app/views/courses/new.html.erb:3:in `_app_views_courses_new_html_erb___1053493429385127269_70259782995660'
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 14:02:57 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_navigation.html.erb (494.7ms)
+Completed 500 Internal Server Error in 560ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `courses_new_path' for #<#<Class:0x00007fcd42cd3748>:0x00007fcd42ccb7a0>
+Did you mean?  courses_path):
+    1: <ul class = 'menu'>
+    2:   <li> <%= link_to 'Home', root_path %></li>
+    3:   <li> <%= link_to 'New course', courses_new_path %></li>
+    4: </ul>
+  
+app/views/layouts/_navigation.html.erb:3:in `_app_views_layouts__navigation_html_erb___235067568112023403_70259762360040'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___3049136230201163657_70259755023080'
+Started GET "/" for 127.0.0.1 at 2018-12-16 14:03:08 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:4
+  Rendered courses/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation.html.erb (210.7ms)
+Completed 500 Internal Server Error in 369ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `courses_new_path' for #<#<Class:0x00007fcd42cd3748>:0x00007fcd40651980>
+Did you mean?  courses_path):
+    1: <ul class = 'menu'>
+    2:   <li> <%= link_to 'Home', root_path %></li>
+    3:   <li> <%= link_to 'New course', courses_new_path %></li>
+    4: </ul>
+  
+app/views/layouts/_navigation.html.erb:3:in `_app_views_layouts__navigation_html_erb___235067568112023403_70259793428160'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___3049136230201163657_70259762688260'
+Started GET "/" for 127.0.0.1 at 2018-12-16 14:09:43 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:4
+  Rendered courses/index.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 101ms (Views: 87.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 14:09:44 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 67ms (Views: 59.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 14:11:08 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 129ms (Views: 121.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:11:35 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AkEJVv54HcPqPsJg2+K2hV3P6Hs04VOWM4nGPXTj08nMHLwYI7qS8YnrnAh/a1D+iYe9fxgLvgRvSw4k/mQW8Q==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"4990", "online"=>"1"}, "commit"=>"Сохранить курс"}
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 35ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 14:15:21 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 90ms (Views: 63.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:15:35 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"seXQQ8ee38UEyJ9DeMcnNsU6e0USkvjtzJCm+MB2UI/dTBM1GD1UsVEok815VXFDSJXZL1+e6SD6hSlZnnyhUg==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"4990", "online"=>"1"}, "commit"=>"Сохранить курс"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[36mCourse Create (1.0ms)[0m  [1m[32mINSERT INTO "courses" ("name", "online", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "JavaScript for webdevelopers"], ["online", 1], ["price", 4990.0], ["created_at", "2018-12-16 11:15:35.397379"], ["updated_at", "2018-12-16 11:15:35.397379"]]
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 55ms (Views: 35.3ms | ActiveRecord: 2.6ms)
+
+
+  [1m[36mCourse Load (1.8ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 14:16:51 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 112ms (Views: 101.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:17:08 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PyfpgGGBcB8c9GiSFrKaKH0nvowC9gyuSBYoryra71pTjir2viL7a0kUZBwXIMxd8Igc5k/6HWN+A6cOdNAehw==", "course"=>{"name"=>"Chepukha course", "price"=>"chepukha", "online"=>"0"}, "commit"=>"Сохранить курс"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[36mCourse Create (1.0ms)[0m  [1m[32mINSERT INTO "courses" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chepukha course"], ["price", 0.0], ["created_at", "2018-12-16 11:17:08.265431"], ["updated_at", "2018-12-16 11:17:08.265431"]]
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 59ms (Views: 44.3ms | ActiveRecord: 2.2ms)
+
+
+  [1m[36mCourse Load (2.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 14:21:02 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 262ms (Views: 187.5ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:21:10 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N5mJIKmm7OIX8e//VRb1lX8or/mb/i5lygYGyh1xMZFbMEpWdgVnlkIR43FUhKPg8ocNk9byP6j8E4lrQ3vATA==", "course"=>{"name"=>"Chepukha course", "price"=>"chepukha", "online"=>"0"}, "commit"=>"Сохранить курс"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 86ms (Views: 37.2ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mCourse Load (9.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Destroy (1.1ms)[0m  [1m[31mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 14:22:26 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 122ms (Views: 104.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:22:32 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qz/BHZHg+wAgkZ3u6+sUedg/oCTk8JTEGWxMQ6tL6A/HlgJrTkNwdHVxkWDqeUIMVZACTqn8hQkvecPi9UEZ0g==", "course"=>{"name"=>"", "price"=>"djfk;da", "online"=>"0"}, "commit"=>"Сохранить курс"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:12:in `create'
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:22:44 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qz/BHZHg+wAgkZ3u6+sUedg/oCTk8JTEGWxMQ6tL6A/HlgJrTkNwdHVxkWDqeUIMVZACTqn8hQkvecPi9UEZ0g==", "course"=>{"name"=>"", "price"=>"djfk;da", "online"=>"0"}, "commit"=>"Сохранить курс"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (6.3ms)
+Completed 200 OK in 62ms (Views: 41.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 14:23:18 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 73ms (Views: 50.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:23:24 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4AZUjBmTR36erWVEOm4WfguE1wlSLh/iVHEFjdzR1VmMr5f6xjDMCstNaco7/EALhit1Yx8iDi9iZIosgtskhA==", "course"=>{"name"=>"", "price"=>"dfsdfa", "online"=>"0"}, "commit"=>"Сохранить курс"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 51ms (Views: 34.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 14:23:52 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 58ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:25:08 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yQKxsqxTDfZyJOC7dq3H/48X+IjyePX+5c/4OtHL1yqlq3LEc/CGgifE7DV3P5GKArha4r905DPT2nebj8Em9w==", "course"=>{"name"=>"Chepukha course", "price"=>"dfsdfasf", "online"=>"0"}, "commit"=>"Сохранить курс"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 160ms (Views: 132.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-12-16 14:27:12 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:4
+  Rendered courses/index.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 57ms (Views: 50.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 14:27:14 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 65ms (Views: 57.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:27:19 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+NVsS3BnK2t/zn8IPtgMytncJ5G+IIjxZseS6rwMVrmUfK89r8SgHyouc4Y/Slq/VHOF+/MsmTxQ0h1L4ganZA==", "course"=>{"name"=>"Chepukha course", "price"=>"dfdf", "online"=>"0"}, "commit"=>"Сохранить курс"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for :price:Symbol):
+    1: <h1>Courses#new</h1>
+    2: <p>Find me in app/views/courses/new.html.erb</p>
+    3: <%= @course.errors.each {|e| e.name} %>
+    4: <%= form_for @course do |f| %>
+    5:   <%= f.text_field :name %>
+    6:   <%= f.text_field :price %>
+  
+app/views/courses/new.html.erb:3:in `block in _app_views_courses_new_html_erb___1053493429385127269_70259802536580'
+app/views/courses/new.html.erb:3:in `_app_views_courses_new_html_erb___1053493429385127269_70259802536580'
+app/controllers/courses_controller.rb:13:in `create'
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:28:01 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+NVsS3BnK2t/zn8IPtgMytncJ5G+IIjxZseS6rwMVrmUfK89r8SgHyouc4Y/Slq/VHOF+/MsmTxQ0h1L4ganZA==", "course"=>{"name"=>"Chepukha course", "price"=>"dfdf", "online"=>"0"}, "commit"=>"Сохранить курс"}
+  [1m[35m (1.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (13.7ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for [:price, [{:error=>:not_a_number, :value=>"dfdf"}]]:Array):
+    1: <h1>Courses#new</h1>
+    2: <p>Find me in app/views/courses/new.html.erb</p>
+    3: <%= @course.errors.details.each {|e| e.name} %>
+    4: <%= form_for @course do |f| %>
+    5:   <%= f.text_field :name %>
+    6:   <%= f.text_field :price %>
+  
+app/views/courses/new.html.erb:3:in `block in _app_views_courses_new_html_erb___1053493429385127269_70259794577680'
+app/views/courses/new.html.erb:3:in `each'
+app/views/courses/new.html.erb:3:in `_app_views_courses_new_html_erb___1053493429385127269_70259794577680'
+app/controllers/courses_controller.rb:13:in `create'
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:47:14 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+NVsS3BnK2t/zn8IPtgMytncJ5G+IIjxZseS6rwMVrmUfK89r8SgHyouc4Y/Slq/VHOF+/MsmTxQ0h1L4ganZA==", "course"=>{"name"=>"Chepukha course", "price"=>"dfdf", "online"=>"0"}, "commit"=>"Сохранить курс"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (13.7ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for [:price, ["is not a number"]]:Array):
+    1: <h1>Courses#new</h1>
+    2: <p>Find me in app/views/courses/new.html.erb</p>
+    3: 
+    4:   <%= @course.errors.messages.each {|e| e.name} %>
+    5: 
+    6: <%= form_for @course do |f| %>
+    7:   <%= f.text_field :name %>
+  
+app/views/courses/new.html.erb:4:in `block in _app_views_courses_new_html_erb___1053493429385127269_70259758595480'
+app/views/courses/new.html.erb:4:in `each'
+app/views/courses/new.html.erb:4:in `_app_views_courses_new_html_erb___1053493429385127269_70259758595480'
+app/controllers/courses_controller.rb:13:in `create'
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 14:47:48 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+NVsS3BnK2t/zn8IPtgMytncJ5G+IIjxZseS6rwMVrmUfK89r8SgHyouc4Y/Slq/VHOF+/MsmTxQ0h1L4ganZA==", "course"=>{"name"=>"Chepukha course", "price"=>"dfdf", "online"=>"0"}, "commit"=>"Сохранить курс"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 93ms (Views: 88.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:35:42 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (364.0ms)
+Completed 500 Internal Server Error in 501ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_course_path' for #<#<Class:0x00007fcd441e7fa8>:0x00007fcd441e5fa0>):
+    1: <ul class = 'menu'>
+    2:   <li> <%= link_to 'Home', root_path %></li>
+    3:   <li> <%= link_to 'New course', new_course_path %></li>
+    4: </ul>
+  
+app/views/layouts/_navigation.html.erb:3:in `_app_views_layouts__navigation_html_erb___235067568112023403_70259759004620'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___3049136230201163657_70259793275900'
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:35:57 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 33ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:36:51 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 101ms (Views: 97.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new?name=Hello&price=10" for 127.0.0.1 at 2018-12-16 15:37:07 +0300
+Processing by CoursesController#new as HTML
+  Parameters: {"name"=>"Hello", "price"=>"10"}
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 46ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/courses/create?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 15:37:49 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/courses/courses/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses/courses/create?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 15:38:08 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/courses/courses/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses/courses/create?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 15:38:22 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/courses/courses/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses/courses/create?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 15:38:26 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/courses/courses/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:38:28 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 168ms (Views: 162.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/create?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 15:38:34 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:38:44 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/create?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 15:38:50 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"name"=>"Hello", "price"=>"100"}
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 32ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:40:47 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 50ms (Views: 46.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:43:51 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (203.1ms)
+Completed 500 Internal Server Error in 236ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `courses_path' for #<#<Class:0x00007fcd4051e478>:0x00007fcd40515d28>
+Did you mean?  courses_new_path):
+     7:   <input type="submit">
+     8: </form>
+     9: 
+    10: <% form_for @course do |form| %>
+    11:   <%= form.label :name %>
+    12:   <%= form.text_field :name %>
+    13: <% end %>
+  
+app/views/courses/new.html.erb:10:in `_app_views_courses_new_html_erb___1053493429385127269_70259762069300'
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:44:21 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (19.7ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 55ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:45:09 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `score' for #<Course:0x00007fcd403549d0>):
+    10: <%= form_for @course, url: courses_new_path do |form| %>
+    11:   <%= form.label :name %>
+    12:   <%= form.text_field :name %>
+    13:   <%= form.text_field :score %>
+    14:   <%= form.check_box :online %>
+    15:   <%= form.submit %>
+    16: <% end %>
+  
+app/views/courses/new.html.erb:13:in `block in _app_views_courses_new_html_erb___1053493429385127269_70259756653240'
+app/views/courses/new.html.erb:10:in `_app_views_courses_new_html_erb___1053493429385127269_70259756653240'
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:45:18 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 38ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:46:03 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 94ms (Views: 90.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:50:21 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/vasiliysikorskiy/.rvm/gems/ruby-2.4.2/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (15.9ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 244ms (Views: 221.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:50:44 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 29ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:53:48 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 36ms (Views: 30.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 15:54:03 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:4
+  Rendered courses/index.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 41ms (Views: 37.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 15:58:41 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 64ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new?name=Hello&price=10" for 127.0.0.1 at 2018-12-16 15:58:55 +0300
+Processing by CoursesController#new as HTML
+  Parameters: {"name"=>"Hello", "price"=>"10"}
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 39ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/create" for 127.0.0.1 at 2018-12-16 16:08:55 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/courses/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses/create" for 127.0.0.1 at 2018-12-16 16:11:38 +0300
+Processing by CoursesController#create as HTML
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 44ms (Views: 39.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 16:11:40 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:4
+  Rendered courses/index.html.erb within layouts/application (18.6ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 58ms (Views: 43.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:11:41 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 44ms (Views: 37.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:15:09 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation.html.erb (2.4ms)
+Completed 200 OK in 65ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:15:22 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 109ms (Views: 104.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:15:41 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 41ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:15:57 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 37ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:15:59 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:16:24 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 47ms (Views: 43.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:16:34 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 36ms (Views: 32.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:16:55 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:19:00 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 67ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 16:19:11 +0300
+Processing by CoursesController#new as HTML
+  Parameters: {"name"=>"Hello", "price"=>"100"}
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 37ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 16:20:01 +0300
+Processing by CoursesController#new as HTML
+  Parameters: {"name"=>"Hello", "price"=>"100"}
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 52ms (Views: 48.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 16:20:26 +0300
+Processing by CoursesController#new as HTML
+  Parameters: {"name"=>"Hello", "price"=>"100"}
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/create?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 16:20:33 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"name"=>"Hello", "price"=>"100"}
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 41ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/create?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 16:24:02 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"name"=>"Hello", "price"=>"100"}
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 66ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:24:04 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 72ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 16:25:32 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/courses/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 16:26:09 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SixdSVFmoCIWV7pQBFpn5g1E5vy8OY7HYkg8xIWxlfOEcegHjKQvEHWC5Dig04Gd2Qyz+JDTY1U+ivTdDzZQyw==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"100", "online"=>"1"}, "commit"=>"Save Course"}
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 55ms (Views: 47.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 16:29:30 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SixdSVFmoCIWV7pQBFpn5g1E5vy8OY7HYkg8xIWxlfOEcegHjKQvEHWC5Dig04Gd2Qyz+JDTY1U+ivTdDzZQyw==", "course"=>{"name"=>"SQL basics", "price"=>"19900", "online"=>"1"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[36mCourse Create (1.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "online", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "SQL basics"], ["online", 1], ["price", 19900.0], ["created_at", "2018-12-16 13:29:30.640146"], ["updated_at", "2018-12-16 13:29:30.640146"]]
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 73ms (Views: 42.9ms | ActiveRecord: 5.4ms)
+
+
+  [1m[36mCourse Load (5.8ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/courses/create?name=Hello&price=100" for 127.0.0.1 at 2018-12-16 16:30:08 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"name"=>"Hello", "price"=>"100"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:11:in `create'
+  [1m[35m (1.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (1.7ms)[0m  [1m[32mINSERT INTO "courses" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-12-16 13:44:49.818278"], ["updated_at", "2018-12-16 13:44:49.818278"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-12-16 13:45:01.747296"], ["updated_at", "2018-12-16 13:45:01.747296"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test"], ["created_at", "2018-12-16 13:46:20.270726"], ["updated_at", "2018-12-16 13:46:20.270726"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (1.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test2"], ["price", 5.0], ["created_at", "2018-12-16 13:56:01.039751"], ["updated_at", "2018-12-16 13:56:01.039751"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 16:57:33 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 67ms (Views: 58.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 16:57:45 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5UEybrs23CUtFh5MfvCJg/3lokqrIZ/DVKmxKmqswkgrHIcgZvRTF07DQCTaeW/4Ka33TofLclEIa3kz4CsHcA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"dfsdf", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 70ms (Views: 40.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/courses/create" for 127.0.0.1 at 2018-12-16 16:59:54 +0300
+Processing by CoursesController#create as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:11:in `create'
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:00:02 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5UEybrs23CUtFh5MfvCJg/3lokqrIZ/DVKmxKmqswkgrHIcgZvRTF07DQCTaeW/4Ka33TofLclEIa3kz4CsHcA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"dfsdf", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 115ms (Views: 100.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/create" for 127.0.0.1 at 2018-12-16 17:00:16 +0300
+Processing by CoursesController#create as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:11:in `create'
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:00:21 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5UEybrs23CUtFh5MfvCJg/3lokqrIZ/DVKmxKmqswkgrHIcgZvRTF07DQCTaeW/4Ka33TofLclEIa3kz4CsHcA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"dfsdf", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 114ms (Views: 107.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/create" for 127.0.0.1 at 2018-12-16 17:00:42 +0300
+Processing by CoursesController#create as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:11:in `create'
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:00:45 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5UEybrs23CUtFh5MfvCJg/3lokqrIZ/DVKmxKmqswkgrHIcgZvRTF07DQCTaeW/4Ka33TofLclEIa3kz4CsHcA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"dfsdf", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 62ms (Views: 56.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:04:47 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b76OML1y48cdFIdEXbjx47UYPoZP3fgQa7sXpIfQ7vSh4zt+YLBs9X7B2Sz5MReYYVBrgmM3FYI3ed+9DVcrzA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"dfsdf", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 109ms (Views: 70.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/courses/create" for 127.0.0.1 at 2018-12-16 17:04:53 +0300
+Processing by CoursesController#create as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:11:in `create'
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:04:59 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5UEybrs23CUtFh5MfvCJg/3lokqrIZ/DVKmxKmqswkgrHIcgZvRTF07DQCTaeW/4Ka33TofLclEIa3kz4CsHcA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"dfsdf", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 71ms (Views: 64.0ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:13:05 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5UEybrs23CUtFh5MfvCJg/3lokqrIZ/DVKmxKmqswkgrHIcgZvRTF07DQCTaeW/4Ka33TofLclEIa3kz4CsHcA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"dfsdf", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 69ms (Views: 63.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/create" for 127.0.0.1 at 2018-12-16 17:13:40 +0300
+Processing by CoursesController#create as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:11:in `create'
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 17:13:51 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 34ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:14:10 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eUzcsLLzI+jWpuGKDwLovcSwnfoPLsr6UhbVKRQSx9O3EWn+bzGs2rVzv+Kriw7GEPjI/iPEJ2gO1B0wnpUC6w==", "course"=>{"name"=>"", "price"=>"0.0", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 26ms (Views: 22.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:14:36 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eUzcsLLzI+jWpuGKDwLovcSwnfoPLsr6UhbVKRQSx9O3EWn+bzGs2rVzv+Kriw7GEPjI/iPEJ2gO1B0wnpUC6w==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"-5", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 45ms (Views: 41.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 17:15:23 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 61ms (Views: 45.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:15:30 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2OtS9mnf/ZkfIURKydnHc2VM3Reaz6PmvjuYvE0jUZgWtue4tB1yq3z0GiJtUCEIsQSIE7YlTnTi+VClx6SUoA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+Redirected to http://localhost:3000new
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:15:53 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2OtS9mnf/ZkfIURKydnHc2VM3Reaz6PmvjuYvE0jUZgWtue4tB1yq3z0GiJtUCEIsQSIE7YlTnTi+VClx6SUoA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+Redirected to http://localhost:3000/courses/new
+Completed 302 Found in 10ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 17:15:53 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:16:55 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nc4nnG7T+/ELVRMXFqBU1t0t4YFGhxm+NHXQmLjAK6f7k5LSsxF0w2iATX+yKbKtCWW0hWpt9CxotxiBMkfunw==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 71ms (Views: 57.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 17:18:23 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 94ms (Views: 90.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 17:18:33 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:18:41 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K+1xOCw10TATqJDK9ddkDHOgjyWTQ1CmJUCpP1K33C3lsMR28fdeAnB9zqJRXoJ3p+jaIb+pvTR5gmEm2DAZFQ==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 28ms (Views: 24.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 17:21:53 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 90ms (Views: 79.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:24:32 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"acSc5nVvX9YDcOzpcbxDKhxoD+6N0us5Pb/D/0f3VjSnmSmoqK3Q5GClsoHVNaVRyCBa6qE4BqthfQvmzXCTDA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (2.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 85ms (Views: 68.1ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:25:28 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"acSc5nVvX9YDcOzpcbxDKhxoD+6N0us5Pb/D/0f3VjSnmSmoqK3Q5GClsoHVNaVRyCBa6qE4BqthfQvmzXCTDA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 140ms (Views: 129.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/create" for 127.0.0.1 at 2018-12-16 17:27:01 +0300
+Processing by CoursesController#create as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:12:in `create'
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:27:06 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"acSc5nVvX9YDcOzpcbxDKhxoD+6N0us5Pb/D/0f3VjSnmSmoqK3Q5GClsoHVNaVRyCBa6qE4BqthfQvmzXCTDA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 62ms (Views: 55.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:27:08 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mlnh/Ps9kYO0UFbqWrikTadOeubuCrFgI1jOTFh3Je5UBFSyJv8esdeFCIL+MUI2cwYv4sLgXPJ/mgZV0vDg1g==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:13
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 34ms (Views: 31.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/create" for 127.0.0.1 at 2018-12-16 17:27:40 +0300
+Processing by CoursesController#create as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:12:in `create'
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:32:02 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"acSc5nVvX9YDcOzpcbxDKhxoD+6N0us5Pb/D/0f3VjSnmSmoqK3Q5GClsoHVNaVRyCBa6qE4BqthfQvmzXCTDA==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 63ms (Views: 47.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:32:32 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"acSc5nVvX9YDcOzpcbxDKhxoD+6N0us5Pb/D/0f3VjSnmSmoqK3Q5GClsoHVNaVRyCBa6qE4BqthfQvmzXCTDA==", "course"=>{"name"=>"J", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 52ms (Views: 36.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:33:24 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"acSc5nVvX9YDcOzpcbxDKhxoD+6N0us5Pb/D/0f3VjSnmSmoqK3Q5GClsoHVNaVRyCBa6qE4BqthfQvmzXCTDA==", "course"=>{"name"=>"J", "price"=>"-100", "online"=>"0"}, "commit"=>"Save Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 50ms (Views: 33.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:34:10 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lM40Xdc+vzqfZnauPFgGbkISHm8CDeVvL0gvvfFEe1hak4ETCvwwCPyzKMaY0eAVllpLay7nCP1ziueke8O+YA==", "course"=>{"name"=>"PHP God", "price"=>"99000", "online"=>"0"}, "commit"=>"Create Course"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[36mCourse Create (1.5ms)[0m  [1m[32mINSERT INTO "courses" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "PHP God"], ["price", 99000.0], ["created_at", "2018-12-16 14:34:10.886385"], ["updated_at", "2018-12-16 14:34:10.886385"]]
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/create.html.erb within layouts/application
+  Rendered courses/create.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (2.6ms)
+Completed 200 OK in 67ms (Views: 43.2ms | ActiveRecord: 3.5ms)
+
+
+  [1m[36mCourse Load (1.6ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-12-16 17:34:38 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:4
+  Rendered courses/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 72ms (Views: 62.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 17:35:16 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 165ms (Views: 153.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/create" for 127.0.0.1 at 2018-12-16 17:36:48 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G3QrNoNCm26rO1azCQg8LxzjHU8Nbj1cpAb3iYPQh4aK+/YLB748RYosfvF2URjxDJDXGmPd0pZBQHu8ucPG1Q==", "course"=>{"name"=>"JavaScript for webdevelopers", "price"=>"knd.sf", "online"=>"0"}, "commit"=>"Create Course"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 47ms (Views: 38.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 21:24:56 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/vasiliysikorskiy/.rvm/gems/ruby-2.4.2/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:4
+  Rendered courses/index.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 303ms (Views: 290.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 21:25:13 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (18.3ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 57ms (Views: 49.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 21:25:19 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:4
+  Rendered courses/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 51ms (Views: 43.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 21:32:05 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (19.5ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 68ms (Views: 55.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 21:33:25 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 38ms (Views: 34.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 21:33:36 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 44ms (Views: 40.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses/edit/1" for 127.0.0.1 at 2018-12-16 21:33:43 +0300
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"1"}
+Completed 406 Not Acceptable in 142ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (CoursesController#edit is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.2) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.2) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.2) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.2) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.2) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.2) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.2) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-16 21:33:51 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 49ms (Views: 45.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/edit/1" for 127.0.0.1 at 2018-12-16 21:35:16 +0300
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (1.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:19
+  Rendering courses/edit.html.erb within layouts/application
+  Rendered courses/edit.html.erb within layouts/application (18.7ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 67ms (Views: 43.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/courses/edit/9" for 127.0.0.1 at 2018-12-16 21:36:07 +0300
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:19
+  Rendering courses/edit.html.erb within layouts/application
+  Rendered courses/edit.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 49ms (Views: 42.1ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/courses/create" for 127.0.0.1 at 2018-12-16 21:36:35 +0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/courses/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started PATCH "/courses/create" for 127.0.0.1 at 2018-12-16 21:38:19 +0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/courses/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses/edit/9" for 127.0.0.1 at 2018-12-16 21:38:38 +0300
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:19
+  Rendering courses/edit.html.erb within layouts/application
+  Rendered courses/edit.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 74ms (Views: 47.5ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/courses/update" for 127.0.0.1 at 2018-12-16 21:38:47 +0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/courses/update"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses/edit/9" for 127.0.0.1 at 2018-12-16 21:39:27 +0300
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:19
+  Rendering courses/edit.html.erb within layouts/application
+  Rendered courses/edit.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 45ms (Views: 40.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/courses/update" for 127.0.0.1 at 2018-12-16 21:39:36 +0300
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for CoursesController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses/edit/9" for 127.0.0.1 at 2018-12-16 21:41:34 +0300
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:19
+  Rendering courses/edit.html.erb within layouts/application
+  Rendered courses/edit.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 45ms (Views: 30.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/courses/update" for 127.0.0.1 at 2018-12-16 21:41:42 +0300
+Processing by CoursesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hpYDyD3PX0KgiJvWhh4tNigoR7dBz/Z10lWxtV1iKMBIy7aG4A3QcMNdxb4il8tN/GASs20lG+eOl3ms1+Xt+A==", "course"=>{"name"=>"HTML and CSS", "price"=>"999", "online"=>"0"}, "commit"=>"Update Course"}
+No template found for CoursesController#update, rendering head :no_content
+Completed 204 No Content in 121ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 21:43:48 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (11.1ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 51ms (Views: 41.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/courses/edit/7" for 127.0.0.1 at 2018-12-16 21:43:51 +0300
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourse Load (0.8ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:19
+  Rendering courses/edit.html.erb within layouts/application
+  Rendered courses/edit.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 41ms (Views: 33.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/courses/update/7" for 127.0.0.1 at 2018-12-16 21:43:58 +0300
+  
+ActionController::RoutingError (uninitialized constant CourseController):
+  
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `rescue in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:57:in `load_missing_constant'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.2) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.2) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.2) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/courses/update/7" for 127.0.0.1 at 2018-12-16 21:44:26 +0300
+Processing by CoursesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jbpxMRlBHQIuzasZVLK7F1lpvdQ65ZoC6awXEAvrQfPL065929FQ9jP75jfZxcJWvdCA5YRtXgbx2QR8p8OHaQ==", "course"=>{"name"=>"HTML and CSS", "price"=>"999", "online"=>"0"}, "commit"=>"Update Course", "id"=>"7"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 2)):
+  
+app/controllers/courses_controller.rb:23:in `update'
+Started POST "/courses/update/7" for 127.0.0.1 at 2018-12-16 21:46:42 +0300
+Processing by CoursesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M/kHLN8yQdL63QDk5Bx7M0qDVBJDmR2ZN7BXvA1gQwH9pLJiAvDO4JkIXoxAlZ1InssBFm9z8Atrcp+lh+eGOQ==", "course"=>{"name"=>"HTML and CSS", "price"=>"999", "online"=>"0"}, "commit"=>"Update Course", "id"=>"7"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:23
+  [1m[36mCourse Update (0.4ms)[0m  [1m[33mUPDATE "courses" SET "name" = ?, "price" = ?, "updated_at" = ? WHERE "courses"."id" = ?[0m  [["name", "HTML and CSS"], ["price", 999.0], ["updated_at", "2018-12-16 18:46:42.217848"], ["id", 7]]
+  ↳ app/controllers/courses_controller.rb:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:23
+Redirected to http://localhost:3000/courses/index
+Completed 302 Found in 23ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/courses/index" for 127.0.0.1 at 2018-12-16 21:46:42 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 35ms (Views: 29.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses/edit/8" for 127.0.0.1 at 2018-12-16 21:46:51 +0300
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:19
+  Rendering courses/edit.html.erb within layouts/application
+  Rendered courses/edit.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 64ms (Views: 58.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/courses/update/8" for 127.0.0.1 at 2018-12-16 21:47:12 +0300
+Processing by CoursesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m1FVC5/CEg09Muv15AWsLBr6lDH2UW62ydWrMfGB7Ul4PNwNPVWFXU+b60zUIGeKcGL3eiHWtWlmQmQ5z6KhTQ==", "course"=>{"name"=>"Advanced JavaScript", "price"=>"oododj", "online"=>"0"}, "commit"=>"Update Course", "id"=>"8"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:23
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:23
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 39ms (Views: 29.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/edit/8" for 127.0.0.1 at 2018-12-16 21:47:31 +0300
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:19
+  Rendering courses/edit.html.erb within layouts/application
+  Rendered courses/edit.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 40ms (Views: 27.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/courses/update/8" for 127.0.0.1 at 2018-12-16 21:47:42 +0300
+Processing by CoursesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VMaT87cFHMp/qgjl7Dc10+YoxQH7pZw1+5ofXFnrEueamya9aseT+Bx/Vo1IvtOoMmCQBddPcaenWNdF02zX3w==", "course"=>{"name"=>"Advanced JavaScript", "price"=>"dfdfdf", "online"=>"0"}, "commit"=>"Update Course", "id"=>"8"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:23
+  Rendering courses/edit.html.erb within layouts/application
+  Rendered courses/edit.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 34ms (Views: 30.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/courses/update/8" for 127.0.0.1 at 2018-12-16 21:47:53 +0300
+Processing by CoursesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Cbu/Ch+Rc1HksROQiVqRQBLiDyFMRs5KlJyMe8pRI4fH5gpEwlP8Y4dkTfgt03c7xqpaJWCsI9jIXkRiQNbmvw==", "course"=>{"name"=>"Advanced JavaScript", "price"=>"2000", "online"=>"1"}, "commit"=>"Update Course", "id"=>"8"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:23
+  [1m[36mCourse Update (0.5ms)[0m  [1m[33mUPDATE "courses" SET "name" = ?, "price" = ?, "online" = ?, "updated_at" = ? WHERE "courses"."id" = ?[0m  [["name", "Advanced JavaScript"], ["price", 2000.0], ["online", 1], ["updated_at", "2018-12-16 18:47:53.908935"], ["id", 8]]
+  ↳ app/controllers/courses_controller.rb:23
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:23
+Redirected to http://localhost:3000/courses/index
+Completed 302 Found in 7ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/courses/index" for 127.0.0.1 at 2018-12-16 21:47:53 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 31ms (Views: 26.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/index" for 127.0.0.1 at 2018-12-16 22:04:38 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 406 Not Acceptable in 120ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (CoursesController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.2) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.2) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.2) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.2) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.2) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.2) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.2) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses" for 127.0.0.1 at 2018-12-16 22:04:47 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (206.0ms)
+Completed 500 Internal Server Error in 223ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `edit_path' for #<#<Class:0x00007f8220b10f18>:0x00007f82205e6bc8>
+Did you mean?  edit_course_path):
+    10:     <tr>
+    11:       <td>
+    12:         <%= c.name %>
+    13:         <%= link_to 'edit', edit_path(c) %>
+    14:       </td>
+    15:       <td> <%= c.price %> <td>
+    16:       <td> <%= c.online ? 'да' : 'нет' %> </td>
+  
+app/views/courses/index.html.erb:13:in `block in _app_views_courses_index_html_erb__68122187784565292_70098435476740'
+app/views/courses/index.html.erb:9:in `_app_views_courses_index_html_erb__68122187784565292_70098435476740'
+Started GET "/courses" for 127.0.0.1 at 2018-12-16 22:05:34 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 64ms (Views: 59.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2018-12-16 22:05:37 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 406 Not Acceptable in 140ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (CoursesController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.2) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.2) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.2) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.2) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.2) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.2) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.2) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses" for 127.0.0.1 at 2018-12-16 22:05:42 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 71ms (Views: 65.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/update/8" for 127.0.0.1 at 2018-12-16 22:12:07 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/courses/update/8"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/courses/update/8" for 127.0.0.1 at 2018-12-16 22:12:09 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/courses/update/8"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:12:15 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 61ms (Views: 52.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2018-12-16 22:12:17 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.9ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:30
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 53ms (Views: 42.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 22:12:22 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (2.3ms)
+  Rendered courses/new.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 52ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-12-16 22:12:54 +0300
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6bEHT19eitUc4Ldw0kSx/16RGuJd6pNK2sEVGipOWUWFGMQ5gP0BoUkAu/7T1ueK0z64iBDmgofs1Jq7dESomA==", "course"=>{"name"=>"Программирование для детей на Scratch", "price"=>"2000", "online"=>"0"}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[36mCourse Create (0.8ms)[0m  [1m[32mINSERT INTO "courses" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Программирование для детей на Scratch"], ["price", 2000.0], ["created_at", "2018-12-16 19:12:54.442160"], ["updated_at", "2018-12-16 19:12:54.442160"]]
+  ↳ app/controllers/courses_controller.rb:12
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:12
+No template found for CoursesController#create, rendering head :no_content
+Completed 204 No Content in 132ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:14:38 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (21.6ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 114ms (Views: 100.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/courses/12/edit" for 127.0.0.1 at 2018-12-16 22:14:41 +0300
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:21
+  Rendering courses/edit.html.erb within layouts/application
+  Rendered courses/_form.html.erb (5.3ms)
+  Rendered courses/edit.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 81ms (Views: 61.6ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/courses/12" for 127.0.0.1 at 2018-12-16 22:14:47 +0300
+Processing by CoursesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j5dEs8T5ypu68hfBgyPHWSVgxZWNGbLvU7t42c0AZ1MId4TcEZzvxnr8+KBhx2Odgs26t7+KZF5xjjFWn4BIow==", "course"=>{"name"=>"Программирование для детей на Scratch", "price"=>"1000", "online"=>"0"}, "commit"=>"Update Course", "id"=>"12"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:25
+  [1m[36mCourse Update (0.4ms)[0m  [1m[33mUPDATE "courses" SET "price" = ?, "updated_at" = ? WHERE "courses"."id" = ?[0m  [["price", 1000.0], ["updated_at", "2018-12-16 19:14:47.112482"], ["id", 12]]
+  ↳ app/controllers/courses_controller.rb:25
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:25
+Redirected to http://localhost:3000/courses/12
+Completed 302 Found in 13ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/courses/12" for 127.0.0.1 at 2018-12-16 22:14:47 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:34
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 55ms (Views: 50.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:14:49 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 50ms (Views: 45.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses/7" for 127.0.0.1 at 2018-12-16 22:14:52 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:34
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 49ms (Views: 42.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:15:56 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 41ms (Views: 35.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:16:28 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 57ms (Views: 43.3ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/courses/10" for 127.0.0.1 at 2018-12-16 22:16:30 +0300
+Processing by CoursesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/+39jxFpojJ7wS8yBDrYzwn7Q1fkCOAYoU9AGxVK7pkxsEjBzKstABgUcVqgsz603bMWU8jiDYr9jYgCn80roQ==", "id"=>"10"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:38
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:38
+  [1m[36mCourse Destroy (0.4ms)[0m  [1m[31mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/courses_controller.rb:38
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:38
+No template found for CoursesController#destroy, rendering head :no_content
+Completed 204 No Content in 138ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:16:33 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 33ms (Views: 29.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:16:54 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 49ms (Views: 41.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/courses/9" for 127.0.0.1 at 2018-12-16 22:16:56 +0300
+Processing by CoursesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"95TQQFkJMr0PBi++/Z7EXNlPXh+Ahidze2tJV9Qc8Hc5yWUOhMu9j2zTcdZZFyInDQcLG6xsyuEnqYFOXps1Tw==", "id"=>"9"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:38
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:38
+  [1m[36mCourse Destroy (0.5ms)[0m  [1m[31mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/courses_controller.rb:38
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:38
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 8ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-12-16 22:16:56 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 29ms (Views: 25.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-12-16 22:18:44 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:33:49 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.9ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 65ms (Views: 58.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 22:33:52 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (4.3ms)
+  Rendered courses/new.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 45ms (Views: 37.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:33:54 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 46ms (Views: 39.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 22:33:55 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (2.9ms)
+  Rendered courses/new.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 38ms (Views: 33.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:33:56 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 50ms (Views: 43.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 22:34:12 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (2.2ms)
+  Rendered courses/new.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 39ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 22:34:14 +0300
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 36ms (Views: 30.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 22:34:14 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (2.3ms)
+  Rendered courses/new.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+Completed 200 OK in 36ms (Views: 33.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 22:37:00 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (30.1ms)
+  Rendered courses/new.html.erb within layouts/application (32.4ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 75ms (Views: 69.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-16 22:37:13 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (4.8ms)
+  Rendered courses/new.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 51ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-30 09:59:24 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/vasiliysikorskiy/.rvm/gems/ruby-2.4.2/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:9
+  Rendered courses/index.html.erb within layouts/application (21.5ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+Completed 200 OK in 260ms (Views: 247.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/courses/7" for 127.0.0.1 at 2018-12-30 09:59:30 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:34
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 62ms (Views: 54.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-12-30 09:59:32 +0300
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (36.4ms)
+  Rendered courses/new.html.erb within layouts/application (40.5ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 99ms (Views: 91.9ms | ActiveRecord: 0.0ms)
+
+

@@ -1,0 +1,21 @@
+<h1>Courses#index</h1>
+<p>Find me in app/views/courses/index.html.erb</p>
+<table>
+  <tr>
+    <th> Course name </th>
+    <th> Course price </th>
+    <th> Online </th>
+  </tr>
+  <% @courses.each do |c| %>
+    <tr>
+      <td>
+        <%= c.name %>
+        <%= link_to 'edit', edit_course_path(c) %>
+        <%= link_to 'show', c %>
+        <%= link_to 'delete', c, method: :delete %>
+      </td>
+      <td> <%= c.price %> <td>
+      <td> <%= c.online ? 'да' : 'нет' %> </td>
+    </tr>
+  <% end %>
+</table>
